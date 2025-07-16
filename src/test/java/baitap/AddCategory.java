@@ -1,15 +1,13 @@
-package BaiTap;
+package baitap;
 
 import common.BaseTest;
 import locators_element.Locators_CMS_AddCategory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 
 public class AddCategory extends BaseTest {
