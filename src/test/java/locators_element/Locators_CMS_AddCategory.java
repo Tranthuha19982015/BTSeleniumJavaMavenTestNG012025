@@ -2,7 +2,7 @@ package locators_element;
 
 public class Locators_CMS_AddCategory {
     //link menu Product
-    public static String linkmenuProduct = "//ul[@id='main-menu']//span[text()='Products']";
+    public static String linkmenuProduct = "//ul[@id='main-menu']//span[text()='Products']/parent::a";
 
     //link menu Category
     public static String linkmenuCategory = "//ul[@id='main-menu']//span[text()='Category']";
@@ -46,6 +46,8 @@ public class Locators_CMS_AddCategory {
 
     public static String dropdownFilteringAttributes = "//label[normalize-space()='Filtering Attributes']/following-sibling::div//button[@role='combobox']";
     public static String inputSearchFilteringAttributes = "//label[normalize-space()='Filtering Attributes']/following-sibling::div//input[@aria-label='Search']";
+
+    public static String labelFilteringAttributes = "//label[normalize-space()='Filtering Attributes']";
 
     public static String chooseFilteringAttributes(String filteringAttributes) {
         String chooseFilteringAttributes = "//span[text()='" + filteringAttributes + "']";
