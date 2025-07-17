@@ -7,10 +7,12 @@ public class Locators_CMS_AddCategory {
     //link menu Category
     public static String linkmenuCategory = "//ul[@id='main-menu']//span[text()='Category']";
 
-    public static String titlePageCategory = "//h5[normalize-space()='Categories']";
+    public static String titlePageCategory = "//h1[normalize-space()='All categories']";
+    public static String titleTableCategory = "//h5[normalize-space()='Categories']";
     public static String inputSearchCategory = "//input[@id='search']";
     public static String categoryNameAfterAdding = "//table//td[2]";
 
+    public static String headerTableCategory = "//thead/tr[@class='footable-header']//th";
     //button Add New Category
     public static String buttonAddNewCategory = "//span[normalize-space()='Add New category']/parent::a";
 
@@ -20,6 +22,8 @@ public class Locators_CMS_AddCategory {
     public static String inputCategoryName = "//input[@id='name']";
 
     public static String dropdownParentCategory = "//label[text()='Parent Category']/following-sibling::div/descendant::button[@role='combobox']";
+    public static String parentCategoryAfterChoose = "//label[text()='Parent Category']/following-sibling::div/descendant::div[@class='filter-option-inner']/div";
+
     public static String inputSearchParentCategory = "//label[text()='Parent Category']/following-sibling::div/descendant::input[@type='search']";
 
     public static String inputOrderingNumber = "//input[@id='order_level']";
@@ -55,4 +59,6 @@ public class Locators_CMS_AddCategory {
     }
 
     public static String buttonSaveCategory = "//button[normalize-space()='Save']";
+
+    public static String messageAddCategorySuccess = "//span[@data-notify='message']";
 }

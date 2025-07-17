@@ -5,12 +5,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
+
 import java.time.Duration;
 import java.util.List;
 
 public class BaseTest {
-    public static WebDriver driver;
+    public WebDriver driver;
+    public SoftAssert softAssert;
 
     @BeforeClass
     public void createDriver() {
@@ -26,35 +30,32 @@ public class BaseTest {
             driver.quit();
             System.out.println("Đóng driver thành công!");
         }
+        softAssert.assertAll();
     }
 
     @BeforeMethod
     public void loginCMS() {
+
         driver.get(Locators_CMS_Login.url);
+        System.out.println(driver.findElement(By.xpath(Locators_CMS_Login.titlePageLogin)).getText());
+        System.out.println(driver.findElement(By.xpath(Locators_CMS_Login.subTitlePageLogin)).getText());
+
         driver.findElement(By.xpath(Locators_CMS_Login.inputEmail)).clear();
         driver.findElement(By.xpath(Locators_CMS_Login.inputEmail)).sendKeys(Locators_CMS_Login.email);
         driver.findElement(By.xpath(Locators_CMS_Login.inputPassword)).clear();
         driver.findElement(By.xpath(Locators_CMS_Login.inputPassword)).sendKeys(Locators_CMS_Login.password);
         driver.findElement(By.xpath(Locators_CMS_Login.buttonLogin)).click();
 
-        List<WebElement> listMenu = driver.findElements(By.xpath("//ul[@id='main-menu']/descendant::span[normalize-space()='Dashboard']"));
-        if (listMenu.size() > 0) {
-            System.out.println("Đăng nhập CMS thành công!");
-        } else {
-            System.out.println("Đăng nhập CMS thất bại!");
-        }
+        List<WebElement> listMenu = driver.findElements(By.xpath(Locators_CMS_Login.linkMenuDashboard));
+        Assert.assertTrue(listMenu.size() > 0, "Đăng nhập CMS thất bại!");
     }
 
     @AfterMethod
     public void logoutCMS() {
-        driver.findElement(By.xpath("//span[text()='Admin Example']/ancestor::a[@role='button']")).click();
-        driver.findElement(By.xpath("//a[contains(@href,'logout')]")).click();
+        driver.findElement(By.xpath(Locators_CMS_Login.accountName)).click();
+        driver.findElement(By.xpath(Locators_CMS_Login.buttonLogout)).click();
 
         List<WebElement> headerPageLogin = driver.findElements(By.xpath(Locators_CMS_Login.titlePageLogin));
-        if (headerPageLogin.size() > 0) {
-            System.out.println("Đăng xuất CMS thành công!");
-        } else {
-            System.out.println("Đăng xuất CMS thất bại!");
-        }
+        softAssert.assertTrue(headerPageLogin.size() > 0, "Đăng xuất CMS thất bại!");
     }
 }
