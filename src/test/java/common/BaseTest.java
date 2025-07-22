@@ -30,11 +30,12 @@ public class BaseTest {
             driver.quit();
             System.out.println("Đóng driver thành công!");
         }
-        softAssert.assertAll();
     }
 
     @BeforeMethod
     public void loginCMS() {
+        // Khởi tạo SoftAssert để kiểm tra nhiều điều kiện
+        softAssert = new SoftAssert();
 
         driver.get(Locators_CMS_Login.url);
         System.out.println(driver.findElement(By.xpath(Locators_CMS_Login.titlePageLogin)).getText());
@@ -57,5 +58,7 @@ public class BaseTest {
 
         List<WebElement> headerPageLogin = driver.findElements(By.xpath(Locators_CMS_Login.titlePageLogin));
         softAssert.assertTrue(headerPageLogin.size() > 0, "Đăng xuất CMS thất bại!");
+
+        softAssert.assertAll();
     }
 }

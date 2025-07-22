@@ -17,9 +17,6 @@ public class AddCategory extends BaseTest {
 
     @Test(priority = 1)
     public void addCategory() throws InterruptedException {
-        // Khởi tạo SoftAssert để kiểm tra nhiều điều kiện
-        softAssert = new SoftAssert();
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
         String timestamp = LocalDateTime.now().format(formatter);
 
