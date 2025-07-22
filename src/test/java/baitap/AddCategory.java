@@ -90,12 +90,12 @@ public class AddCategory extends BaseTest {
         driver.findElement(By.xpath(Locators_CMS_AddCategory.inputMetaTitle)).sendKeys("Category Test Meta Title");
         Thread.sleep(1000);
         String actualMetaTitle = driver.findElement(By.xpath(Locators_CMS_AddCategory.inputMetaTitle)).getAttribute("value");
-        softAssert.assertTrue(actualOrderingNumber.equals("Category Test Meta Title"), "Không đúng giá trị Meta Title đã điền");
+        softAssert.assertTrue(actualMetaTitle.equals("Category Test Meta Title"), "Không đúng giá trị Meta Title đã điền");
 
         driver.findElement(By.xpath(Locators_CMS_AddCategory.inputMetaDescription)).sendKeys("Category Test Meta Description");
         Thread.sleep(1000);
         String actualMetaDescription = driver.findElement(By.xpath(Locators_CMS_AddCategory.inputMetaDescription)).getAttribute("value");
-        softAssert.assertTrue(actualOrderingNumber.equals("Category Test Meta Description"), "Không đúng giá trị Ordering Number đã điền");
+        softAssert.assertTrue(actualMetaDescription.equals("Category Test Meta Description"), "Không đúng giá trị Meta Description đã điền");
 
         driver.findElement(By.xpath(Locators_CMS_AddCategory.dropdownFilteringAttributes)).click();
         driver.findElement(By.xpath(Locators_CMS_AddCategory.inputSearchFilteringAttributes)).sendKeys("Size");
