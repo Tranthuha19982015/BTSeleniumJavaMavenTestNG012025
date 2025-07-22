@@ -58,34 +58,45 @@ public class AddCategory extends BaseTest {
         driver.findElement(By.xpath(Locators_CMS_AddCategory.inputCategoryName)).sendKeys(categoryName);
         Thread.sleep(1000);
         String actualCategoryName = driver.findElement(By.xpath(Locators_CMS_AddCategory.inputCategoryName)).getAttribute("value");
-        softAssert.assertTrue(actualCategoryName.equals(categoryName), "Không đúng giá trị category name đã điền");
+        softAssert.assertTrue(actualCategoryName.equals(categoryName), "Không đúng giá trị Category Name đã điền");
 
         driver.findElement(By.xpath(Locators_CMS_AddCategory.dropdownParentCategory)).click();
         driver.findElement(By.xpath(Locators_CMS_AddCategory.inputSearchParentCategory)).sendKeys("Sport shoes", Keys.ENTER);
         Thread.sleep(1000);
         String actualParentCategory = driver.findElement(By.xpath(Locators_CMS_AddCategory.parentCategoryAfterChoose)).getText();
-        softAssert.assertTrue(actualParentCategory.equals("Sport shoes"), "Không đúng giá trị parent category đã chọn");
+        softAssert.assertTrue(actualParentCategory.equals("Sport shoes"), "Không đúng giá trị Parent Category đã chọn");
 
         driver.findElement(By.xpath(Locators_CMS_AddCategory.inputOrderingNumber)).sendKeys("2");
         Thread.sleep(1000);
         String actualOrderingNumber = driver.findElement(By.xpath(Locators_CMS_AddCategory.inputOrderingNumber)).getAttribute("value");
-        softAssert.assertTrue(actualOrderingNumber.equals("2"), "Không đúng giá trị ordering number đã điền");
+        softAssert.assertTrue(actualOrderingNumber.equals("2"), "Không đúng giá trị Ordering Number đã điền");
 
         driver.findElement(By.xpath(Locators_CMS_AddCategory.getDropdownType)).click();
         driver.findElement(By.xpath(Locators_CMS_AddCategory.selectType("Digital"))).click();
         Thread.sleep(1000);
+        String actualType = driver.findElement(By.xpath(Locators_CMS_AddCategory.getDropdownType)).getText();
+        softAssert.assertTrue(actualType.equals("Digital"), "Không đúng giá trị Type đã chọn");
+
         driver.findElement(By.xpath(Locators_CMS_AddCategory.chooseFileBanner)).click();
         driver.findElement(By.xpath(Locators_CMS_AddCategory.chooseFile("aodai.jpg"))).click();
         driver.findElement(By.xpath(Locators_CMS_AddCategory.buttonAddFileBannerIcon)).click();
         Thread.sleep(1000);
+
         driver.findElement(By.xpath(Locators_CMS_AddCategory.chooseFileIcon)).click();
         driver.findElement(By.xpath(Locators_CMS_AddCategory.chooseFile("nonla.jpg"))).click();
         driver.findElement(By.xpath(Locators_CMS_AddCategory.buttonAddFileBannerIcon)).click();
         Thread.sleep(1000);
+
         driver.findElement(By.xpath(Locators_CMS_AddCategory.inputMetaTitle)).sendKeys("Category Test Meta Title");
         Thread.sleep(1000);
+        String actualMetaTitle = driver.findElement(By.xpath(Locators_CMS_AddCategory.inputMetaTitle)).getAttribute("value");
+        softAssert.assertTrue(actualOrderingNumber.equals("Category Test Meta Title"), "Không đúng giá trị Meta Title đã điền");
+
         driver.findElement(By.xpath(Locators_CMS_AddCategory.inputMetaDescription)).sendKeys("Category Test Meta Description");
         Thread.sleep(1000);
+        String actualMetaDescription = driver.findElement(By.xpath(Locators_CMS_AddCategory.inputMetaDescription)).getAttribute("value");
+        softAssert.assertTrue(actualOrderingNumber.equals("Category Test Meta Description"), "Không đúng giá trị Ordering Number đã điền");
+
         driver.findElement(By.xpath(Locators_CMS_AddCategory.dropdownFilteringAttributes)).click();
         driver.findElement(By.xpath(Locators_CMS_AddCategory.inputSearchFilteringAttributes)).sendKeys("Size");
         driver.findElement(By.xpath(Locators_CMS_AddCategory.chooseFilteringAttributes("Size"))).click();
