@@ -5,5 +5,13 @@
         <packages>
             <package name="baitap"/>
         </packages>
+        <classes>
+            <class name="baitap.AddCategory">
+                <methods>
+                    <include name="editCategory"></include>
+                    <include name="deleteCategory"></include>
+                </methods>
+            </class>
+        </classes>
     </test>
 </suite>
