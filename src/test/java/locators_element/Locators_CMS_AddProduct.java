@@ -2,6 +2,11 @@ package locators_element;
 
 public class Locators_CMS_AddProduct {
 
+    //link menu Add Product
+    public static String linkMenuProducts = "//span[normalize-space()='Products']";
+    public static String linkMenuAddProduct = "//span[normalize-space()='Add New Product']/parent::a";
+
+    public static String headerAddProduct = "//div[contains(@class,'aiz-titlebar')]/h5";
     //Product Information
     public static String inputProductName = "//input[@name='name']";
     public static String dropdownCategory = "//button[@data-id='category_id']";
@@ -28,6 +33,7 @@ public class Locators_CMS_AddProduct {
     public static String inputVideoLink = "//input[@name='video_link']";
 
     //Product Variation
+    public static String labelToggleColors = "//input[@name='colors_active' and @type='checkbox']/parent::label";
     public static String toggleColors = "//input[@name='colors_active' and @type='checkbox']";
     public static String dropdownColors = "//button[@data-id='colors']";
     public static String inputSearchColors = "//button[@data-id='colors']/following-sibling::div/descendant::input[@type='search']";
@@ -65,18 +71,18 @@ public class Locators_CMS_AddProduct {
     public static String getInputQuantityPriceWarning = "//input[@name='low_stock_quantity']";
 
     //Stock Visibility State
-    public static String toggleStockQuantity = "//label[normalize-space()='Show Stock Quantity']/following-sibling::div/descendant::span";
-    public static String toggleStockWithTextOnly = "//label[normalize-space()='Show Stock With Text Only']/following-sibling::div/descendant::span";
-    public static String toggleHideStock = "//label[normalize-space()='Hide Stock']/following-sibling::div/descendant::span";
+    public static String labelToggleStockQuantity = "//label[normalize-space()='Show Stock Quantity']/following-sibling::div/label";
+    public static String labelToggleStockWithTextOnly = "//label[normalize-space()='Show Stock With Text Only']/following-sibling::div/label";
+    public static String labelToggleHideStock = "//label[normalize-space()='Hide Stock']/following-sibling::div/label";
 
     //Cash on Delivery
-    public static String toggleStatusCashOnDelivery = "//h5[normalize-space()='Cash on Delivery']/ancestor::div[@class='card']/descendant::span";
+    public static String labelToggleStatusCashOnDelivery = "//h5[normalize-space()='Cash on Delivery']/ancestor::div[@class='card']/descendant::label[contains(@class,'aiz-switch')]";
 
     //Featured
-    public static String toggleStatusFeatured = "//h5[normalize-space()='Featured']/ancestor::div[@class='card']/descendant::span";
+    public static String labelToggleStatusFeatured = "//h5[normalize-space()='Featured']/ancestor::div[@class='card']/descendant::label[contains(@class,'aiz-switch')]";
 
     //Todays Deal
-    public static String toggleStatusTodaysDeal = "//h5[normalize-space()='Todays Deal']/ancestor::div[@class='card']/descendant::span";
+    public static String labelToggleStatusTodaysDeal = "//h5[normalize-space()='Todays Deal']/ancestor::div[@class='card']/descendant::label[contains(@class,'aiz-switch')]";
 
     //Flash Deal
     public static String dropdownAddToFlash = "//button[@data-id='flash_deal']";
