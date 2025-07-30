@@ -82,7 +82,7 @@ public class AddProduct extends BaseTest {
         Thread.sleep(1000);
 
         WebElement elementBarcode = driver.findElement(By.xpath(Locators_CMS_AddProduct.inputBarcode));
-        action.sendKeys(elementBarcode, "2025" + timestamp).perform();
+        action.sendKeys(elementBarcode, "20025" + timestamp).perform();
         Thread.sleep(1000);
     }
 
