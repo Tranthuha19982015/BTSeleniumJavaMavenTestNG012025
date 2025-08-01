@@ -1,4 +1,4 @@
-package locators_element;
+package locators_element.cms;
 
 public class Locators_CMS_Login {
     //link CMS

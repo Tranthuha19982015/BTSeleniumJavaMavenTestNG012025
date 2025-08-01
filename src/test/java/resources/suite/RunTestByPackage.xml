@@ -6,7 +6,7 @@
             <package name="baitap"/>
         </packages>
         <classes>
-            <class name="baitap.AddCategory">
+            <class name="baitap.cms.AddCategory">
                 <methods>
                     <include name="editCategory"></include>
                     <include name="deleteCategory"></include>

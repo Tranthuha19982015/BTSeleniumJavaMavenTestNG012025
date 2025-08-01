@@ -1,12 +1,11 @@
-package baitap;
+package baitap.cms;
 
 import common.BaseTest;
-import locators_element.Locators_CMS_Category;
+import locators_element.cms.Locators_CMS_Category;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

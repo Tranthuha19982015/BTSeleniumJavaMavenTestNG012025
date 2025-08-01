@@ -1,14 +1,16 @@
-package baitap;
+package baitap.cms;
 
 import common.BaseTest;
-import locators_element.Locators_CMS_AddProduct;
-import locators_element.Locators_CMS_Category;
+import locators_element.cms.Locators_CMS_AddProduct;
+import locators_element.cms.Locators_CMS_Category;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import java.awt.*;
+import java.awt.event.InputEvent;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -16,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 public class AddProduct extends BaseTest {
 
     @Test
-    public void addProduct() throws InterruptedException {
+    public void addProduct() throws InterruptedException, AWTException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
         String timestamp = LocalDateTime.now().format(formatter);
 
@@ -37,7 +39,9 @@ public class AddProduct extends BaseTest {
                 "Chưa mở được trang Add Product");
 
         //Điền thông tin sản phẩm
+        //Product Information
         Actions action = new Actions(driver);
+        Robot robot = new Robot();
 
         WebElement elementProductName = driver.findElement(By.xpath(Locators_CMS_AddProduct.inputProductName));
         action.sendKeys(elementProductName, "Product HTest " + timestamp).perform();
@@ -84,6 +88,12 @@ public class AddProduct extends BaseTest {
         WebElement elementBarcode = driver.findElement(By.xpath(Locators_CMS_AddProduct.inputBarcode));
         action.sendKeys(elementBarcode, "20025" + timestamp).perform();
         Thread.sleep(1000);
+
+        //Product Images
+        //WebElement elementChooseFile = driver.findElement(By.xpath(Locators_CMS_AddProduct.inputMetaImage));
+
+        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
     }
 
 }

@@ -1,6 +1,6 @@
 package common;
 
-import locators_element.Locators_CMS_Login;
+import locators_element.cms.Locators_CMS_Login;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
